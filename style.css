@@ -1,0 +1,278 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin: 30px;
+    margin-bottom: 0px;
+}
+
+
+/*----------------------------FORMULAIRE-------------------------*/
+
+
+#formu {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0;
+    padding: 20px;
+}
+
+#beau {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+}
+
+#tach {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #f00ba7;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #b20b99;
+}
+
+#resulta,
+#resulte,
+#resulti,
+#resulto {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/*----------------------------DESSOUS-------------------------*/
+
+
+p {
+    background-color: #d9f4ff;
+    color: rgb(0, 0, 0);
+    padding: 10px 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.modif-class {
+    background-color: #e1e1e1;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-size: 16px;
+}
+
+#ba:hover {
+    background-color: #3a8924;
+}
+
+.suppr-class {
+    background-color: #e20a0a;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-size: 14px;
+    align-items: center;
+}
+
+.suppr-class:hover {
+    background-color: #ad0808;
+}
+
+.close-modal {
+    background-color: #e20a0a;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.close-modal:hover {
+    background-color: #ad0808;
+}
+
+.boite-tache {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.boite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 20px;
+    flex: 1;
+    text-align: center;
+    height: 20px;
+}
+
+.wuw {
+    background-color: #0acba5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    width: 20%;
+}
+
+.wuw:hover {
+    background-color: #087e67;
+}
+
+
+.conteneur-taches {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+
+.boite-tache p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+
+button {
+    background-color: #8f0ae2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    width: 90%;
+}
+
+button:hover {
+    background-color: #5b0991;
+}
+
+
+.waw {
+    background-color: #0a8ce2;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.wew {
+    background-color: #df5b10;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.wiw {
+    background-color: #f1ae30;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.wow {
+    background-color: #11b344;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.container-buttons,
+.bim {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.result {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
+}

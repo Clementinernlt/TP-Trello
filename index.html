@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TP Trello</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <h1>TP Trello Clémentine Renault</h1>
+    <div class="boite">
+        <button class="wuw">AJOUTER UNE COLONNE</button>
+    </div>
+    <div class="conteneur-taches">
+        <div class="boite-tache">
+            <p class="waw">EN COURS</p>
+            <button id="buta">Ajouter une tâche</button>
+            <div id="resulta">
+                <div>
+                    <p>Titre : SAE 401</p>
+                    <p>Description : Réaliser le lancement d'une marque</p>
+                    <p>Catégorie : Stratégie de Communication</p>
+                    <button class="suppr-class">Supprimer</button>
+                </div>
+                <div>
+                    <p>Titre : Tp short film</p>
+                    <p>Description : Analyse d'un court métrage</p>
+                    <p>Catégorie : Anglais</p>
+                    <button class="suppr-class">Supprimer</button>
+                </div>
+            </div>
+        </div>
+        <div class="boite-tache">
+            <p class="wew">A VÉRIFIER</p>
+            <button id="bute">Ajouter une tâche</button>
+            <div id="resulte">
+                <div>
+                    <p>Titre : TP Trello</p>
+                    <p>Description : Essayer d'enlever le plus d'erreur</p>
+                    <p>Catégorie : Développement web</p>
+                    <button class="suppr-class">Supprimer</button>
+                </div>
+            </div>
+        </div>
+        <div class="boite-tache">
+            <p class="wiw">À TERMINER</p>
+            <button id="buti">Ajouter une tâche</button>
+            <div id="resulti"></div>
+        </div>
+        <div class="boite-tache">
+            <p class="wow">FAITE</p>
+            <button id="buto">Ajouter une tâche</button>
+            <div id="resulto">
+                <div>
+                    <p>Titre : Rapport</p>
+                    <p>Description : Écrire le rapport de com</p>
+                    <p>Catégorie : Stratégie de Communication</p>
+                    <button class="suppr-class">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <dialog id="beau">
+        <button class="close-modal">Fermer</button>
+        <form id="formu">
+            <label for="title">Titre : </label><br>
+            <input type="text" id="title" name="title"><br>
+            <label for="desc">Description :</label><br>
+            <input type="text" id="desc" name="desc"><br>
+            <label for="catselect">Catégorie:</label><br>
+            <select name="cat" id="catselect">
+                <option value="">--Choisissez une catégorie--</option>
+                <option value="Design">Design</option>
+                <option value="Développement web">Développement web</option>
+                <option value="Anglai">Anglais</option>
+                <option value="Communication">Stratégie de Communication</option>
+            </select>
+            <input type="submit" value="Envoyer">
+        </form>
+    </dialog>
+
+    <dialog id="tach">
+        <button class="close-modal">Fermer</button>
+        <form id="taaa">
+            <label for="nom">Nom : </label><br>
+            <input type="text" id="nom" name="nom"><br>
+            <input type="submit" value="Envoyer">
+        </form>
+    </dialog>
+
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => { //pour que les infos se lise toute peu importe l'ordre
+            //pour supprimé une carte
+            const addDeleteButtonListeners = () => {
+                document.querySelectorAll('.suppr-class').forEach(button => {
+                    button.addEventListener('click', function () {
+                        this.parentElement.remove();
+                    });
+                });
+            };
+            addDeleteButtonListeners();
+
+            const dialog = document.getElementById("beau");
+            const taskModal = document.getElementById('tach');
+            const closeButtons = document.querySelectorAll(".close-modal");
+            const form = document.getElementById("formu");
+            const columnForm = document.getElementById("taaa");
+
+            // mes différent bboutons pour ajouter les taches dans la bonne colonne
+            const buttons = ["buta", "bute", "buti", "buto"].map(id => document.getElementById(id));
+
+            // pour associer mes boutons au colonne qui leur corespond
+            const resultDivs = {
+                "buta": document.getElementById("resulta"),
+                "bute": document.getElementById("resulte"),
+                "buti": document.getElementById("resulti"),
+                "buto": document.getElementById("resulto")
+            };
+
+            // Configuration des événements pour chaque bouton
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    dialog.showModal();
+                    currentResultDiv = resultDivs[button.id];
+                });
+            });
+
+            // pour fermer la  modale
+            closeButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    button.closest("dialog").close();
+                });
+            });
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                let formDataObject = {};
+                formData.forEach((value, key) => {
+                    formDataObject[key] = value;
+                });
+
+                // création d'une nouvelle carte pour la tâche avec les bonne infos
+                const newCard = document.createElement('div');
+                newCard.innerHTML = `
+            <p>Titre : ${formDataObject.title}</p>
+            <p>Description : ${formDataObject.desc}</p>
+            <p>Catégorie : ${formDataObject.cat}</p>
+        `;
+                // bouton de suppression qui on la class suppr-class
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Supprimer';
+                deleteButton.className = 'suppr-class';
+                deleteButton.addEventListener('click', () => {
+                    newCard.remove();
+                });
+                newCard.appendChild(deleteButton);
+
+                currentResultDiv.appendChild(newCard);
+                form.reset();
+                dialog.close();
+            });
+
+            columnForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                const formData = new FormData(columnForm);
+                let columnName = formData.get("nom");
+
+                // crée la nouvelle colonne a la suite des autres et le met dans la bonne div
+                const newColumn = document.createElement('div');
+                newColumn.className = 'boite-tache';
+                newColumn.innerHTML = `
+            <p class="waw">${columnName}</p>
+            <button>Ajouter une tâche</button>
+            <div></div>
+        `;
+
+                const container = document.querySelector(".conteneur-taches");
+                container.insertBefore(newColumn, container.lastChild);
+
+                columnForm.reset();
+                taskModal.close();
+            });
+
+            const addColumnButton = document.querySelector('.wuw');
+            if (addColumnButton && taskModal) {
+                addColumnButton.addEventListener('click', () => {
+                    taskModal.showModal();
+                });
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
